@@ -1,0 +1,107 @@
+doctype html
+html(lang='en')
+  head
+    title Welcome to Twit-Padi
+    link(href='https://fonts.googleapis.com/icon?family=Material+Icons', rel='stylesheet')
+    link(type='text/css', rel='stylesheet', href='materialize/css/materialize.min.css', media='screen,projection')
+    link(rel='stylesheet', href='css/style.css')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+  body
+    header
+      nav.light-blue.accent-3
+        .container
+          .nav-wrapper
+            a.brand-logo.white-text(href='/') Twit-Padi
+            a.button-collapse.right(href='#', data-activates='mobile-demo')
+              i.white-text.material-icons menu
+            ul.right.hide-on-med-and-down
+              li
+                a.white-text(href='/about') About
+              li
+                a.white-text(href='/help') Help
+            ul#mobile-demo.side-nav
+              li
+                a(href='/about') About
+              li
+                a(href='/help') Help
+    main.main-area
+        #index-banner.parallax-container
+          .section.no-pad-bot
+            .container
+              
+              br
+              h2.header.center.light-blue-text.lighten-4 Know your real Padi!
+              .row.center#mantra-line
+                h6.header.col.s12.light.mantra Enter a twitter handle to see who you follow that isn't following you back and vice-versa
+              .row.center
+                form.col.s12#padiForm(action='/', method='post')
+                  .row
+                    .input-field.col.s12
+                      input#icon_prefix.validate(type='search', name='handle')
+                      label(for='icon_prefix') Enter Handle here... eg citadel50
+                    button.btn-large.btn.waves-effect.waves-light.light-blue.accent-4.go(type='submit')
+                      | Go!
+                h4 #{shc} twitter handles searched      
+          .parallax
+            img(src='images/image1.jpg', alt='')
+    main.friends-area
+      .container
+        .row.count-cont
+          if(followers ||  following)
+            .col.s12
+              .followcount 
+                a(href='https://twitter.com/#{handle}')
+                  @#{handle} 
+                  |  has #{followers} followers and is following #{following} people
+            hr.divider    
+        .preloader-wrapper.active.loader-center
+          .spinner-layer.spinner-blue-only
+            .circle-clipper.left
+              .circle
+            .gap-patch
+              .circle
+            .circle-clipper.right
+              .circle
+        
+        .row
+          .col.l6.m6.s12.dont-follow-me
+            if(dontFollowMeUsers)
+              .output-text People who do not follow @#{handle} back
+              ul.collection
+                each user, i in dontFollowMeUsers
+                  li.collection-item
+                    a(href='https://twitter.com/#{user.handle}') #{user.name}
+                    a(href='https://twitter.com/#{user.handle}')
+                      img.left.img-avatar(src='#{user.pic}')
+                    a(href='https://twitter.com/#{user.handle}').waves-effect.waves-teal.btn-flat.right visit Profile
+                    a(href='https://twitter.com/#{user.handle}')
+                      small(style='display:block') @#{user.handle}  
+                    .clearfix
+     
+          .col.l6.m6.s12.i-dont-follow 
+            if(iDoNotFollowUsers)
+              .output-text People @#{handle}  does not follow  back 
+              ul.collection
+                each user, i in iDoNotFollowUsers
+                  li.collection-item
+                    a(href='https://twitter.com/#{user.handle}') #{user.name}
+                    a(href='https://twitter.com/#{user.handle}')
+                      img.left.img-avatar(src='#{user.pic}')
+                    a(href='https://twitter.com/#{user.handle}').waves-effect.waves-teal.btn-flat.right visit Profile
+                    a(href='https://twitter.com/#{user.handle}')
+                      small(style='display:block') @#{user.handle}  
+                    .clearfix   
+    footer.page-footer.light-blue.accent-3
+      .footer-copyright
+        .container
+          | © 2018 Citadel Hussein
+          | |  
+          a.white-text(href='http://twitter.com/citadel50') Follow me on twitter
+          a.grey-text.text-lighten-4.right(href='http://peachdev.website')    Visit my website
+                  
+                
+            
+    script(type='text/javascript', src='https://code.jquery.com/jquery-3.2.1.min.js')
+    script(type='text/javascript', src='materialize/js/materialize.min.js')
+    script(type='text/javascript', src='js/script.js')
+        

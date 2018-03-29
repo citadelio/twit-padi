@@ -1,0 +1,52 @@
+doctype html
+html(lang='en')
+  head
+    title Welcome to Twit-Padi
+    link(href='https://fonts.googleapis.com/icon?family=Material+Icons', rel='stylesheet')
+    link(type='text/css', rel='stylesheet', href='materialize/css/materialize.min.css', media='screen,projection')
+    link(rel='stylesheet', href='css/style.css')
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+  body
+    header
+      nav.light-blue.accent-3
+        .container
+          .nav-wrapper
+            a.brand-logo.white-text(href='/') Twit-Padi
+            a.button-collapse.right(href='#', data-activates='mobile-demo')
+              i.white-text.material-icons menu
+            ul.right.hide-on-med-and-down
+              li
+                a.white-text(href='/about') About
+              li
+                a.white-text(href='/help') Help
+            ul#mobile-demo.side-nav
+              li
+                a(href='/about') About
+              li
+                a(href='/help') Help
+    main.main-area
+      .container
+       h3 About
+       br
+       h5 Easily find Non-Followers 
+       p Hunting through your twitter account and finding those who don't follow back can be a tough task, well it used to be with this simple tool you generate a list of those who you follow but do not follow back.
+       br
+       h5 Unfollow Non-Followers
+       p Easily locate and remove people who don't follow back your account and stop following them immediately by going to their profile from this tool and clicking on unfollow.
+       br
+       h5 Follow New Followers back
+       p Track all your people who follow your twitter account but are yet to be followed back. Simply visit their profile from this tool and follow them.
+    footer.page-footer.light-blue.accent-3
+      .footer-copyright
+        .container
+          | © 2018 Citadel Hussein
+          | |  
+          a.white-text(href='http://twitter.com/citadel50') Follow me on twitter
+          a.grey-text.text-lighten-4.right(href='http://peachdev.website')    Visit my website
+                  
+                
+            
+    script(type='text/javascript', src='https://code.jquery.com/jquery-3.2.1.min.js')
+    script(type='text/javascript', src='materialize/js/materialize.min.js')
+    script(type='text/javascript', src='js/script.js')
+        
